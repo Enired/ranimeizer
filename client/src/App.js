@@ -7,6 +7,7 @@ function App() {
   const [anime, setAnime] = useState('')
 
   useEffect(()=>{
+
   },[anime])
 
 
