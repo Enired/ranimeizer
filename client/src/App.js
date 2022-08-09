@@ -21,8 +21,8 @@ function App() {
       <h1>Welcome to Ranimeizer!!!!!</h1>
       <span>You should watch: {anime}</span>
       <br/>
-      <button>Rewatch</button>
-      <button>Something New!</button>
+      <button onClick={()=>{getRandomAnime()}}>Rewatch</button>
+      <button onClick={()=>{getRandomAnime()}}>Something New!</button>
     </div>
   );
 }
