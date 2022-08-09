@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
-
+import axios from 'axios'
 
 function App() {
   const [anime, setAnime] = useState('')
 
   useEffect(()=>{
-
-  },[anime])
+    axios.get('/my_animes/random').then(res=>setAnime(res.data.name))
+  },[])
 
 
 
