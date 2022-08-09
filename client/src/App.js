@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './styles/button-style.scss'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
@@ -21,8 +22,14 @@ function App() {
       <h1>Welcome to Ranimeizer!!!!!</h1>
       <span>You should watch: {anime}</span>
       <br/>
-      <button onClick={()=>{getRandomAnime()}}>Rewatch</button>
-      <button onClick={()=>{getRandomAnime()}}>Something New!</button>
+      <div className="styled-button anime-button" id="rewatch-anime-button">
+        Rewatch
+        <div id="underline"/>
+      </div>
+      <div className="styled-button anime-button" id="new-anime-button">
+        Something New!
+        <div id="underline"/>
+      </div>
     </div>
   );
 }
