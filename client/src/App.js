@@ -6,8 +6,11 @@ import axios from 'axios'
 function App() {
   const [anime, setAnime] = useState('')
 
-  useEffect(()=>{
+  const getRandomAnime = () => {
     axios.get('/my_animes/random').then(res=>setAnime(res.data.name))
+  }
+  useEffect(()=>{
+    getRandomAnime();
   },[])
 
 
