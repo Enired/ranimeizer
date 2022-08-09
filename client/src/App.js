@@ -4,6 +4,8 @@ import './styles/button-style.scss'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
+import { Button } from './components/Button';
+
 function App() {
   const [anime, setAnime] = useState('')
 
@@ -22,14 +24,11 @@ function App() {
       <h1>Ranimeizer</h1>
       <span>You should watch: {anime}</span>
       <br/>
-      <div className="styled-button anime-button" id="rewatch-anime-button" onClick={()=>{getRandomAnime()}}>
-        Rewatch
-        <div id="underline"/>
-      </div>
-      <div className="styled-button anime-button" id="new-anime-button" onClick={()=>{getRandomAnime()}}>
-        Something New!
-        <div id="underline"/>
-      </div>
+      <Button text={'Rewatch'} onClick={getRandomAnime}/>
+      <Button text={'Something New'} onClick={getRandomAnime}/>
+
+
+
     </div>
   );
 }
