@@ -19,14 +19,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Welcome to Ranimeizer!!!!!</h1>
+      <h1>Ranimeizer</h1>
       <span>You should watch: {anime}</span>
       <br/>
-      <div className="styled-button anime-button" id="rewatch-anime-button">
+      <div className="styled-button anime-button" id="rewatch-anime-button" onClick={()=>{getRandomAnime()}}>
         Rewatch
         <div id="underline"/>
       </div>
-      <div className="styled-button anime-button" id="new-anime-button">
+      <div className="styled-button anime-button" id="new-anime-button" onClick={()=>{getRandomAnime()}}>
         Something New!
         <div id="underline"/>
       </div>
