@@ -6,6 +6,10 @@ import axios from 'axios'
 
 import { Button } from './components/Button';
 
+//MUI ICONS
+import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
+import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
+
 function App() {
   const [anime, setAnime] = useState('')
 
@@ -24,8 +28,8 @@ function App() {
       <h1>Ranimeizer</h1>
       <span>You should watch: {anime}</span>
       <br/>
-      <Button text={'Rewatch'} onClick={getRandomAnime}/>
-      <Button text={'Something New'} onClick={getRandomAnime}/>
+      <Button text={'Rewatch'} icon={<ReplayOutlinedIcon/>}onClick={getRandomAnime} />
+      <Button text={'Something New'} icon={<NewReleasesOutlinedIcon/>} onClick={getRandomAnime}/>
 
 
 
