@@ -40,7 +40,7 @@ function App() {
 
   const getAni = () => {
     axios.post('https://graphql.anilist.co', {query, variables}, {headers})
-    .then(res => console.log(res))
+    .then(res => console.log(res.data.data.Media.title.english))
     .catch(err => console.log(err.message))
 
   }
