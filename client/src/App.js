@@ -31,7 +31,7 @@ function App() {
   }
   `
 
-  const variables = {  id: 15125};
+  let variables = {id: Math.floor(Math.random() * 20000) + 1};
 
   const headers = {
     "Content-Type": "application/json",
@@ -40,12 +40,22 @@ function App() {
 
   const getAni = () => {
     axios.post('https://graphql.anilist.co', {query, variables}, {headers})
-    .then(res => console.log(res.data.data.Media.title.english))
-    .catch(err => console.log(err.message))
+    .then(res => {
+      console.log(res.data);
+      if(res.data.data.Media.title.english){
+        console.log(res.data.data.Media.title.english)
+      }
+      else{
+        console.log(res.data.data.Media.title.romaji)
+      }
+    })
+    .then(variables = {id: Math.floor(Math.random() * 20000) + 1})
+    .catch(()=>getAni())
 
   }
 
   //End of test
+  
   useEffect(()=>{
     getRandomAnime();
   },[])
