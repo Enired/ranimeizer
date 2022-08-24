@@ -16,6 +16,36 @@ function App() {
   const getRandomAnime = () => {
     axios.get('/my_animes/random').then(res=>setAnime(res.data.name))
   }
+
+  //Here we are testing getting animes from the anilist api
+  const query= `
+  query ($id: Int) { # Define which variables will be used in the query (id)
+    Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+      id
+      title {
+        romaji
+        english
+        native
+      }
+    }
+  }
+  `
+
+  const variables = {  id: 15125};
+
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+
+  const getAni = () => {
+    axios.post('https://graphql.anilist.co', {query, variables}, {headers})
+    .then(res => console.log(res))
+    .catch(err => console.log(err.message))
+
+  }
+
+  //End of test
   useEffect(()=>{
     getRandomAnime();
   },[])
@@ -27,6 +57,7 @@ function App() {
       <br/>
       <Button text={'Rewatch'} onClick={getRandomAnime} />
       <Button text={'Something New'} onClick={getRandomAnime}/>
+      <Button text={'test'} onClick={getAni}/>
 
 
 
