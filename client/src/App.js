@@ -28,8 +28,8 @@ function App() {
       <h1>Ranimeizer</h1>
       <span>You should watch: {anime}</span>
       <br/>
-      <Button text={'Rewatch'} icon={<ReplayOutlinedIcon/>}onClick={getRandomAnime} />
-      <Button text={'Something New'} icon={<NewReleasesOutlinedIcon/>} onClick={getRandomAnime}/>
+      <Button text={'Rewatch'} icon={<ReplayOutlinedIcon className='button-icon'/>}onClick={getRandomAnime} />
+      <Button text={'Something New'} icon={<NewReleasesOutlinedIcon className='button-icon'/>} onClick={getRandomAnime}/>
 
 
 

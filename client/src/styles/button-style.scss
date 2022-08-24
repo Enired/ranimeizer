@@ -18,6 +18,9 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  &:hover #underline {
+    left: 0;
+  }
 }
 
 #underline {
@@ -32,6 +35,3 @@
   bottom: 0;
 }
 
-.anime-button:hover #underline {
-  left: 0;
-}
