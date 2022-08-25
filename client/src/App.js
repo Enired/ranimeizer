@@ -17,10 +17,10 @@ function App() {
   //   axios.get('/my_animes/random').then(res=>setAnime(res.data.name))
   // }
 
-  //Here we are testing getting animes from the anilist api
-  const query= `
-  query ($id: Int) { # Define which variables will be used in the query (id)
-    Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+  const url = 'https://graphql.anilist.co'
+  const query = `
+  query ($id: Int) {
+    Media (id: $id, type: ANIME) {
       id
       title {
         romaji
@@ -30,7 +30,6 @@ function App() {
     }
   }
   `
-
   let variables = {id: Math.floor(Math.random() * 20000) + 1};
 
   const headers = {
@@ -39,9 +38,8 @@ function App() {
   };
 
   const getAni = () => {
-    axios.post('https://graphql.anilist.co', {query, variables}, {headers})
+    axios.post(url, {query, variables}, {headers})
     .then(res => {
-      console.log(res);
       if(res.data.data.Media.title.english){
         setAnime(res.data.data.Media.title.english)
       }
@@ -61,8 +59,6 @@ function App() {
 
   }
 
-  //End of test
-  
   useEffect(()=>{
     getAni();
   },[])
@@ -74,7 +70,7 @@ function App() {
       <br/>
       {/* <Button text={'Rewatch'} onClick={getRandomAnime} />
       <Button text={'Something New'} onClick={getRandomAnime}/> */}
-      <Button text={'test'} onClick={getAni}/>
+      <Button text={'Give me an Anime'} onClick={getAni}/>
 
 
 
