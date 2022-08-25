@@ -40,11 +40,12 @@ function App() {
   const getAni = () => {
     axios.post(url, {query, variables}, {headers})
     .then(res => {
-      if(res.data.data.Media.title.english){
-        setAnime(res.data.data.Media.title.english)
+      const animeTitle = res.data.data.Media.title
+      if(animeTitle.english){
+        setAnime(animeTitle.english)
       }
       else{
-        setAnime(res.data.data.Media.title.romaji)
+        setAnime(animeTitle.romaji)
       }
     })
     .then(variables = {id: Math.floor(Math.random() * 20000) + 1})
