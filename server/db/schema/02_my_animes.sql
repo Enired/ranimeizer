@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS my_animes CASCADE;
-
-CREATE TABLE my_animes(
-  id SERIAL PRIMARY KEY,
-  user_id INT REFERENCES users(id),
-  name VARCHAR(255) NOT NULL
-);
